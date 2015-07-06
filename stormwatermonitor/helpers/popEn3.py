@@ -4,7 +4,7 @@ import subprocess
 
 def feedPip(coordinates):
 	working = os.getcwd() + "\\stormwatermonitor\\helpers\\"
-	command_stdout = subprocess.Popen("FindingPath.exe " + coordinates, shell=True, stdout = subprocess.PIPE, cwd=working).stdout.read()
+	command_stdout = subprocess.Popen("FindingPath.exe " + coordinates, shell=True, stdin = subprocess.PIPE, stderr = subprocess.PIPE, stdout = subprocess.PIPE, cwd=working).stdout.read()
 	#print(type(command_stdout))
 	command_text = command_stdout.decode("utf-8")
 	#preprocess the string
